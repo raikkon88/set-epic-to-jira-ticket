@@ -20,15 +20,17 @@ const getParameters = () => {
 const exec = async () => {
     const { jiraBaseUrl, jiraIssueKey, jiraEpicId, jiraToken, jiraEmail } = getParameters()
 
-    const url = `${jiraBaseUrl}/rest/api/3/issue/${jiraIssueKey}/epic`;
+    const url = `${jiraBaseUrl}/rest/api/3/issue/${jiraIssueKey}`;
 
     const data = {
-        epicId: jiraEpicId
+        "fields": {
+            "parent": {
+                "key": jiraEpicId
+            }
+        }
     };
 
-    for (const i of jiraToken) {
-        console.log(i)
-    }
+
 
     return axios
         .put(url, data, {
