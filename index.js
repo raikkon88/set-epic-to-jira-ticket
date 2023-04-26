@@ -26,6 +26,10 @@ const exec = async () => {
         epicId: jiraEpicId
     };
 
+    for (const i of jiraToken) {
+        console.log(i)
+    }
+
     return axios
         .put(url, data, {
             auth: {
