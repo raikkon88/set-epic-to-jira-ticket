@@ -30,9 +30,7 @@ const exec = async () => {
         }
     };
 
-
-
-    return axios
+    await axios
         .put(url, data, {
             auth: {
                 username: jiraEmail,
@@ -43,7 +41,7 @@ const exec = async () => {
             },
         })
 
-
+    return 'The epic link has been setup properly'
 }
 
 exec().then((output) => core.setOutput('results', output)).catch(err => core.setFailed(err.message))
