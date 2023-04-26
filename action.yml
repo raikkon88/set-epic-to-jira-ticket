@@ -1,0 +1,26 @@
+name: "Update jira ticket epic"
+description: "Sets an epic to a jira ticket"
+inputs:
+  JIRA_BASE_URL:
+    description: "The base url of the jira dashboard"
+    required: true
+    default: ""
+  JIRA_ISSUE_KEY_OR_ID:
+    description: "The jira ticket key or id to be updated"
+    required: true
+    default: ""
+  JIRA_EPIC_ID:
+    description: "The jira epic to be attached to the jira ticket"
+    required: true
+    default: ""
+  JIRA_TOKEN:
+    description: "The authorization token used to authenticate with jira"
+    required: true
+    default: ""
+  JIRA_EMAIL:
+    description: "The email that will be used with jira"
+    required: true
+    default: ""
+runs:
+  using: "node16"
+  main: "index.js"
